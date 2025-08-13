@@ -1,2 +1,2 @@
-# Custom-F1-Calendar
-An simple F1 Calendar that you can costumize your way
+# Custom F1 Calendar
+A simple F1 Calendar that you can customize your way
