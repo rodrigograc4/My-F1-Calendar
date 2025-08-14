@@ -3,12 +3,17 @@
 @import "@fontsource/montserrat/700.css";
 
 @theme {
-  --color-light-yellow: #fff3de;
-  --color-jeans-blue: #7ba0b1;
-  --color-orange: #ff9600;
-  --color-light-gray: #cecece;
+  --color-dark-blue: #15151e;
+  --color-red: #e10600;
+  --color-dark-red: #b00500;
+  --color-off-white: #f7f4f1;
+  --color-light-gray: #e0dedc;
 }
 
 :root {
   --font-sans: "Montserrat", sans-serif;
+}
+
+body {
+  @apply bg-off-white;
 }
