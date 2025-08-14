@@ -57,10 +57,10 @@ export default function Subscribe() {
             id="emoji"
             checked={emoji}
             onChange={(e) => handleEmojiChange(e.target.checked)}
-            className="border-light-gray text-red accent-red h-4 w-4 rounded bg-white"
+            className="border-light-gray text-red accent-red h-5 w-5 rounded bg-white"
           />
-          <label htmlFor="emoji" className="text-sm">
-            Emoji 🏁
+          <label htmlFor="emoji" className="text-lg">
+            Emoji ⚡
           </label>
         </div>
 
@@ -71,11 +71,11 @@ export default function Subscribe() {
             checked={practice}
             onChange={(e) => handlePracticeChange(e.target.checked)}
             disabled={!quali}
-            className="border-light-gray text-red accent-red h-4 w-4 rounded bg-white disabled:cursor-not-allowed disabled:opacity-50"
+            className="border-light-gray text-red accent-red h-5 w-5 rounded bg-white disabled:cursor-not-allowed disabled:opacity-50"
           />
           <label
             htmlFor="practice"
-            className={`text-sm ${!quali ? "text-gray-400" : "text-black"}`}
+            className={`text-lg ${!quali ? "text-gray-400" : "text-black"}`}
           >
             Practice Sessions 🏎️
           </label>
@@ -87,9 +87,9 @@ export default function Subscribe() {
             id="quali"
             checked={quali}
             onChange={(e) => handleQualiChange(e.target.checked)}
-            className="border-light-gray text-red accent-red h-4 w-4 rounded bg-white"
+            className="border-light-gray text-red accent-red h-5 w-5 rounded bg-white"
           />
-          <label htmlFor="quali" className="text-sm">
+          <label htmlFor="quali" className="text-lg">
             Qualifying ⏱️
           </label>
         </div>
@@ -99,38 +99,26 @@ export default function Subscribe() {
             type="checkbox"
             checked={true}
             disabled
-            className="border-light-gray accent-red h-4 w-4 cursor-not-allowed rounded bg-white"
+            className="border-light-gray accent-red h-5 w-5 cursor-not-allowed rounded bg-white"
           />
-          <label className="text-sm text-black">Races 🏁</label>
+          <label className="text-lg text-black">Races 🏁</label>
         </div>
       </div>
 
       <div className="border-t pt-4">
         <div className="mb-4">
-          <h3 className="mb-2 text-sm text-gray-700">Selected File:</h3>
-          <div className="rounded-md bg-white p-3">
-            <code className="text-sm text-gray-800">{selectedFile}</code>
+          <h3 className="mb-2 text-lg text-gray-700">Selected File:</h3>
+          <div className="bg-off-white rounded-md p-3">
+            <code className="text-gray-800">{selectedFile}</code>
           </div>
         </div>
 
         <button
           onClick={handleSubscribe}
-          className="bg-red hover:bg-dark-red w-full rounded-md px-4 py-2 text-white transition-colors duration-200"
+          className="bg-red hover:bg-dark-red w-full rounded-md px-4 py-2 font-semibold text-white transition-colors duration-200"
         >
           Subscribe to Calendar
         </button>
-      </div>
-
-      <div className="text-xs text-gray-500">
-        <p className="mb-2">Rules:</p>
-        <ul className="list-inside list-disc space-y-1">
-          <li>Emoji: Independent toggle</li>
-          <li>Practice: Can only be enabled if Qualifying is enabled</li>
-          <li>
-            Qualifying: Independent toggle, but disabling it also disables
-            Practice
-          </li>
-        </ul>
       </div>
     </div>
   );

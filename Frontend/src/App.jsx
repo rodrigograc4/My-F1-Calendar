@@ -4,7 +4,7 @@ import Homepage from "./pages/Homepage";
 export default function App() {
   return (
     <Router>
-      <div className="bg-off-white min-h-screen">
+      <div className="min-h-screen">
         <Routes>
           <Route path="/" element={<Homepage />} />
         </Routes>
