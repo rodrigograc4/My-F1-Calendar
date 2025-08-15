@@ -57,7 +57,7 @@ export default function Subscribe() {
             id="emoji"
             checked={emoji}
             onChange={(e) => handleEmojiChange(e.target.checked)}
-            className="border-light-gray text-red accent-red h-5 w-5 rounded bg-white"
+            className="border-light-gray text-red accent-red h-5 w-5 rounded"
           />
           <label htmlFor="emoji" className="">
             Emoji ⚡
@@ -71,7 +71,7 @@ export default function Subscribe() {
             checked={practice}
             onChange={(e) => handlePracticeChange(e.target.checked)}
             disabled={!quali}
-            className="border-light-gray text-red accent-red h-5 w-5 rounded bg-white disabled:cursor-not-allowed disabled:opacity-50"
+            className="border-light-gray text-red accent-red h-5 w-5 rounded disabled:cursor-not-allowed disabled:opacity-50"
           />
           <label
             htmlFor="practice"
@@ -87,7 +87,7 @@ export default function Subscribe() {
             id="quali"
             checked={quali}
             onChange={(e) => handleQualiChange(e.target.checked)}
-            className="border-light-gray text-red accent-red h-5 w-5 rounded bg-white"
+            className="border-light-gray text-red accent-red h-5 w-5 rounded"
           />
           <label htmlFor="quali" className="">
             Qualifying ⏱️
@@ -99,7 +99,7 @@ export default function Subscribe() {
             type="checkbox"
             checked={true}
             disabled
-            className="border-light-gray accent-red h-5 w-5 cursor-not-allowed rounded bg-white"
+            className="border-light-gray accent-red h-5 w-5 cursor-not-allowed rounded"
           />
           <label className="text-black">Races 🏁</label>
         </div>

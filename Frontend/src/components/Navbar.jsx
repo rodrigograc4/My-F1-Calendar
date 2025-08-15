@@ -99,7 +99,7 @@ export default function Navbar() {
       </div>
 
       {/* Barra com próxima corrida */}
-      <div className="border-light-gray border-b-2 bg-white px-6 md:px-10 lg:px-14">
+      <div className="border-light-gray bg-off-white border-b-2 px-6 md:px-10 lg:px-14">
         <div className="mx-auto max-w-[1600px] py-2">
           <div className="flex items-center justify-between">
             {/* Texto - Lado esquerdo */}

@@ -2,10 +2,11 @@ import Navbar from "../components/Navbar";
 import WelcomeText from "../components/WelcomeText";
 import Subscribe from "../components/Subscribe";
 import FinalText from "../components/FinalText";
+import Footer from "../components/Footer";
 
 export default function Homepage() {
   return (
-    <div className="py-30">
+    <div className="pt-30">
       <Navbar />
       <div className="px-6 md:px-10 lg:px-14">
         <div className="mx-auto my-16 max-w-[1080px] space-y-3">
@@ -18,6 +19,7 @@ export default function Homepage() {
         </div>
         <FinalText />
       </div>
+      <Footer />
     </div>
   );
 }
