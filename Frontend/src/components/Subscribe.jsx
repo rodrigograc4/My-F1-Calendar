@@ -59,7 +59,7 @@ export default function Subscribe() {
             onChange={(e) => handleEmojiChange(e.target.checked)}
             className="border-light-gray text-red accent-red h-5 w-5 rounded bg-white"
           />
-          <label htmlFor="emoji" className="text-lg">
+          <label htmlFor="emoji" className="">
             Emoji ⚡
           </label>
         </div>
@@ -75,7 +75,7 @@ export default function Subscribe() {
           />
           <label
             htmlFor="practice"
-            className={`text-lg ${!quali ? "text-gray-400" : "text-black"}`}
+            className={` ${!quali ? "text-light-gray" : "text-black"}`}
           >
             Practice Sessions 🏎️
           </label>
@@ -89,7 +89,7 @@ export default function Subscribe() {
             onChange={(e) => handleQualiChange(e.target.checked)}
             className="border-light-gray text-red accent-red h-5 w-5 rounded bg-white"
           />
-          <label htmlFor="quali" className="text-lg">
+          <label htmlFor="quali" className="">
             Qualifying ⏱️
           </label>
         </div>
@@ -101,21 +101,21 @@ export default function Subscribe() {
             disabled
             className="border-light-gray accent-red h-5 w-5 cursor-not-allowed rounded bg-white"
           />
-          <label className="text-lg text-black">Races 🏁</label>
+          <label className="text-black">Races 🏁</label>
         </div>
       </div>
 
       <div className="border-t pt-4">
         <div className="mb-4">
-          <h3 className="mb-2 text-lg text-gray-700">Selected File:</h3>
+          <h3 className="mb-2 text-gray-700">Selected File:</h3>
           <div className="bg-off-white rounded-md p-3">
-            <code className="text-gray-800">{selectedFile}</code>
+            <code>{selectedFile}</code>
           </div>
         </div>
 
         <button
           onClick={handleSubscribe}
-          className="bg-red hover:bg-dark-red w-full rounded-md px-4 py-2 font-semibold text-white transition-colors duration-200"
+          className="bg-red hover:bg-dark-red w-full rounded-md px-4 py-2 font-bold text-white transition-colors duration-200"
         >
           Subscribe to Calendar
         </button>

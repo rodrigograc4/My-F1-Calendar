@@ -1,6 +1,6 @@
 export default function FinalText() {
   return (
-    <div className="mx-auto max-w-[1080px] text-lg">
+    <div className="mx-auto max-w-[1080px]">
       <p className="mb-2">
         Your personalized calendar is generated from the official F1 schedule,
         but formatted your way:

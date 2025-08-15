@@ -1,6 +1,6 @@
 export default function WelcomeText() {
   return (
-    <div className="mx-auto max-w-[1080px] text-lg">
+    <div className="mx-auto max-w-[1080px]">
       <p className="mb-4">
         We’re excited to bring you the most flexible Formula 1 calendar
         experience ever. With Custom F1 Calendar,{" "}

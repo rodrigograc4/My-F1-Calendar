@@ -59,7 +59,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 z-50 w-full">
       {/* Parte fixa */}
-      <div className="bg-dark-blue">
+      <div className="bg-dark-blue px-6 md:px-10 lg:px-14">
         <div
           className="mx-auto max-w-[1600px] py-3"
           style={{
@@ -80,15 +80,17 @@ export default function Navbar() {
             {/* Icone - Lado esquerdo */}
             <div className="flex items-center space-x-4">
               <img src="/icon.svg" alt="Logo" className="h-12 w-12" />
-              <p className="text-2xl text-white">Custom F1 Calendar</p>
+              <p className="hidden text-2xl text-white md:block">
+                Custom F1 Calendar
+              </p>
             </div>
 
             {/* Botoes - Lado direito */}
             <div className="flex items-center space-x-4">
-              <button className="bg-red hover:bg-dark-red rounded-full px-4 py-2 text-sm font-semibold text-white transition-colors duration-200">
+              <button className="bg-red hover:bg-dark-red rounded-full px-4 py-2 text-sm font-bold text-white transition-colors duration-200">
                 Subscribe
               </button>
-              <button className="rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition-colors duration-200">
+              <button className="rounded-full bg-black px-4 py-2 text-sm font-bold text-white transition-colors duration-200">
                 Add Manually
               </button>
             </div>
@@ -97,12 +99,12 @@ export default function Navbar() {
       </div>
 
       {/* Barra com próxima corrida */}
-      <div className="border-light-gray border-b-2 bg-white">
+      <div className="border-light-gray border-b-2 bg-white px-6 md:px-10 lg:px-14">
         <div className="mx-auto max-w-[1600px] py-2">
           <div className="flex items-center justify-between">
             {/* Texto - Lado esquerdo */}
-            <div className="flex items-center space-x-4">
-              <p>The Calendar you can personalize your way</p>
+            <div className="hidden items-center space-x-4 md:flex">
+              <p>The Calendar Made by You</p>
             </div>
 
             {/* Próxima corrida - Lado direito */}
