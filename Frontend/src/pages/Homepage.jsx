@@ -10,7 +10,7 @@ export default function Homepage() {
       <Navbar />
       <div className="px-6 md:px-10 lg:px-14">
         <div className="mx-auto my-16 max-w-[1080px] space-y-3">
-          <p className="text-6xl">Welcome to Custom F1 Calendar!</p>
+          <p className="text-6xl">Welcome to My F1 Calendar!</p>
           <div className="bg-red h-2 w-3/4 rounded-r-full"></div>
         </div>
         <WelcomeText />

@@ -18,10 +18,10 @@ export default function FinalText() {
       <p className="mb-4">
         And for complete peace of mind, we’ve included a{" "}
         <strong>live preview</strong> so you can instantly compare the official
-        F1 calendar with your custom one before subscribing.
+        F1 calendar with your own before subscribing.
       </p>
       <p className="mb-4">
-        With Custom F1 Calendar, your F1 schedule isn’t just a calendar —{" "}
+        With My F1 Calendar, your F1 schedule isn’t just a calendar —{" "}
         <strong>it’s your calendar</strong>.
       </p>
       <p className="">

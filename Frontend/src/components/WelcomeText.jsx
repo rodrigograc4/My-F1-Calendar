@@ -3,7 +3,7 @@ export default function WelcomeText() {
     <div className="mx-auto max-w-[1080px]">
       <p className="mb-4">
         We’re excited to bring you the most flexible Formula 1 calendar
-        experience ever. With Custom F1 Calendar,{" "}
+        experience ever. With My F1 Calendar,{" "}
         <strong>you decide exactly what shows up in your calendar</strong> —
         whether you want only race days, races + qualifying sessions, or the
         full weekend including practice sessions.

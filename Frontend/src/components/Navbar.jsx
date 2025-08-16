@@ -81,7 +81,7 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
               <img src="/icon.svg" alt="Logo" className="h-12 w-12" />
               <p className="hidden text-2xl text-white md:block">
-                Custom F1 Calendar
+                My F1 Calendar
               </p>
             </div>
 

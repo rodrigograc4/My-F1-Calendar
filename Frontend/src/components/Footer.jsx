@@ -11,7 +11,7 @@ export default function Footer() {
         <a href="https://github.com/rodrigograc4" target="_blank">
           <GitHubIcon className="my-6" />
         </a>
-        <p>© 2025 Custom F1 Calendar. All rights reserved.</p>
+        <p>© 2025 My F1 Calendar. All rights reserved.</p>
       </div>
     </footer>
   );
