@@ -3,7 +3,7 @@ import ICAL from "ical.js";
 
 async function getNextRace() {
   try {
-    const response = await fetch("/myf1calendar-races.ics");
+    const response = await fetch("/myf1calendar.ics");
     const calendarText = await response.text();
 
     const jcalData = ICAL.parse(calendarText);
@@ -59,15 +59,15 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 z-50 w-full">
       {/* Parte fixa */}
-      <div className="bg-black px-6 md:px-10 lg:px-14">
+      <div className="bg-dark-blue px-6 md:px-10 lg:px-14">
         <div
           className="mx-auto max-w-[1600px] py-3"
           style={{
             backgroundImage: `
               linear-gradient(
                 180deg, 
-                rgba(0, 0, 0, 0.8) 0%, 
-                rgba(0, 0, 0, 1) 100%
+                rgba(21, 21, 30, 0.9) 0%, 
+                rgba(21, 21, 30, 1) 100%
               ),
               url('/lines.svg')
             `,
@@ -87,10 +87,20 @@ export default function Navbar() {
 
             {/* Botoes - Lado direito */}
             <div className="flex items-center space-x-4">
-              <button className="bg-dark-gray rounded-full px-4 py-2 text-sm font-bold text-white transition-colors duration-200">
+              <button
+                className="rounded-full bg-black px-4 py-2 text-sm font-bold text-white transition-colors duration-200"
+                onClick={() => {
+                  window.location.href = "/add-manually";
+                }}
+              >
                 Add Manually
               </button>
-              <button className="bg-red hover:bg-dark-red rounded-full px-4 py-2 text-sm font-bold text-white transition-colors duration-200">
+              <button
+                className="bg-red hover:bg-dark-red rounded-full px-4 py-2 text-sm font-bold text-white transition-colors duration-200"
+                onClick={() => {
+                  window.location.href = "/";
+                }}
+              >
                 Subscribe
               </button>
             </div>
