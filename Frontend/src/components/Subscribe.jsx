@@ -53,7 +53,7 @@ export default function Subscribe() {
 
   const handleSubscribe = () => {
     if (selectedFile) {
-      const webcalUrl = `webcal://${selectedFile}`;
+      const webcalUrl = `webcal://myf1calendar.vercel.app/${selectedFile}`;
       window.location.href = webcalUrl;
     }
   };
