@@ -26,7 +26,7 @@ export default function Subscribe() {
         combo.quali === qualiActive,
     );
 
-    return match ? match.file : "f1-calendar.ics";
+    return match ? match.file : "myf1calendar-races.ics";
   };
 
   // Update selected file when checkboxes change
