@@ -3,7 +3,7 @@ import ICAL from "ical.js";
 
 async function getNextRace() {
   try {
-    const response = await fetch("/f1-calendar.ics");
+    const response = await fetch("/myf1calendar-races.ics");
     const calendarText = await response.text();
 
     const jcalData = ICAL.parse(calendarText);
@@ -104,7 +104,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Texto - Lado esquerdo */}
             <div className="hidden items-center space-x-4 md:flex">
-              <p>The Calendar Made by You</p>
+              <p>A F1 Calendar made for you by you</p>
             </div>
 
             {/* Próxima corrida - Lado direito */}

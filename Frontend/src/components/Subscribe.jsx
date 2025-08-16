@@ -149,7 +149,7 @@ export default function Subscribe() {
           </div>
         </div>
         <div>
-          <p className="mb-2 font-bold">Your F1 Calendar</p>
+          <p className="mb-2 font-bold">My F1 Calendar</p>
           <div className="bg-red flex flex-col rounded-lg text-white">
             <div className="p-3">
               <p className="font-bold">{getPreviewTitle()}</p>
