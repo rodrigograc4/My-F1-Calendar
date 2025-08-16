@@ -3,7 +3,7 @@ import ICAL from "ical.js";
 
 async function getNextRace() {
   try {
-    const response = await fetch("/myf1calendar.ics");
+    const response = await fetch("/myf1calendar-races.ics");
     const calendarText = await response.text();
 
     const jcalData = ICAL.parse(calendarText);
