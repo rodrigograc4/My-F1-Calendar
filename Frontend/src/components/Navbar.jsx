@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import ICAL from "ical.js";
 
 async function getNextRace() {
@@ -49,10 +49,10 @@ async function getNextRace() {
   }
 }
 
-export default function Navbar() {
-  const [nextRace, setNextRace] = React.useState(null);
+export default function Navbar({ onSubscribeClick }) {
+  const [nextRace, setNextRace] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     getNextRace().then(setNextRace);
   }, []);
 
@@ -89,17 +89,13 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
               <button
                 className="rounded-full bg-black px-4 py-2 text-sm font-bold text-white transition-colors duration-200"
-                onClick={() => {
-                  window.location.href = "/add-manually";
-                }}
+                onClick={onSubscribeClick}
               >
                 Add Manually
               </button>
               <button
                 className="bg-red hover:bg-dark-red rounded-full px-4 py-2 text-sm font-bold text-white transition-colors duration-200"
-                onClick={() => {
-                  window.location.href = "/";
-                }}
+                onClick={onSubscribeClick}
               >
                 Subscribe
               </button>
