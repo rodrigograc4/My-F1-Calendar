@@ -1,5 +1,6 @@
 import requests
 from ics import Calendar
+from datetime import datetime, timezone
 
 # URL do calendário original
 url = "https://better-f1-calendar.vercel.app/api/calendar.ics"
@@ -27,7 +28,12 @@ emoji_map = {
 # Função para gerar calendário filtrado
 def generate_calendar(emojis, practice, qualifying):
     new_cal = Calendar()
+    now = datetime.now(timezone.utc)
+    
     for event in calendar.events:
+        if event.begin < now:
+            continue
+
         include_event = False
         if practice and "Practice" in event.name:
             include_event = True
