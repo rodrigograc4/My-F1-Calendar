@@ -1,12 +1,16 @@
 import requests
 from ics import Calendar
 from datetime import datetime, timezone
+import os
 
 # URL do calendário original
 url = "https://better-f1-calendar.vercel.app/api/calendar.ics"
 response = requests.get(url)
 response.raise_for_status()
 calendar = Calendar(response.text)
+
+# Diretório onde este script está (Frontend/public)
+output_dir = os.path.dirname(__file__)
 
 # Lista de configurações para gerar os ficheiros
 configs = [
@@ -61,7 +65,9 @@ for cfg in configs:
     ics_text = cal.serialize()
     lines = [line.strip() for line in ics_text.splitlines() if line.strip()]
     ics_crlf = "\r\n".join(lines) + "\r\n"
-    with open(cfg["filename"], "w", encoding="utf-8", newline="") as f:
+
+    filepath = os.path.join(output_dir, cfg["filename"])
+    with open(filepath, "w", encoding="utf-8", newline="") as f:
         f.write(ics_crlf)
 
-print("Todos os calendários F1 foram criados com sucesso!")
+print("✅ Todos os calendários F1 foram criados (só com corridas futuras)!")
