@@ -12,6 +12,14 @@ calendar = Calendar(response.text)
 # Diretório onde este script está (Frontend/public)
 output_dir = os.path.dirname(__file__)
 
+# Header personalizado para os .ics
+ICS_HEADER = """BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:My F1 Calendar
+NAME:F1
+X-WR-CALNAME:F1
+"""
+
 # Lista de configurações para gerar os ficheiros
 configs = [
     {"emojis": True,  "practice": True,  "qualifying": True,  "filename": "myf1calendar-emoji-pract-quali-races.ics"},
@@ -63,11 +71,19 @@ def generate_calendar(emojis, practice, qualifying):
 for cfg in configs:
     cal = generate_calendar(cfg["emojis"], cfg["practice"], cfg["qualifying"])
     ics_text = cal.serialize()
-    lines = [line.strip() for line in ics_text.splitlines() if line.strip()]
-    ics_crlf = "\r\n".join(lines) + "\r\n"
+
+    # Remove qualquer header padrão e substitui pelo personalizado
+    vevent_index = ics_text.find("BEGIN:VEVENT")
+    if vevent_index != -1:
+        ics_body = ics_text[vevent_index:]
+    else:
+        ics_body = ""
+
+    lines = [line.strip() for line in ics_body.splitlines() if line.strip()]
+    ics_crlf = ICS_HEADER + "\r\n".join(lines) + "\r\nEND:VCALENDAR\r\n"
 
     filepath = os.path.join(output_dir, cfg["filename"])
     with open(filepath, "w", encoding="utf-8", newline="") as f:
         f.write(ics_crlf)
 
-print("✅ Todos os calendários F1 foram criados (só com corridas futuras)!")
+print("✅ Todos os calendários F1 foram criados com sucesso!")
