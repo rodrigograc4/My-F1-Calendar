@@ -1,3 +1,3 @@
-# My F1 Calendar
+# PureF1
 
-A F1 Calendar made for you by you
+Minimal F1 Calendar
