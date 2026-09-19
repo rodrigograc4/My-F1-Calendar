@@ -1,0 +1,135 @@
+import { useEffect, useState } from "react";
+import ICAL from "ical.js";
+
+async function getNextRace() {
+  try {
+    const response = await fetch("/myf1calendar-races.ics");
+    const calendarText = await response.text();
+
+    const jcalData = ICAL.parse(calendarText);
+    const comp = new ICAL.Component(jcalData);
+
+    const events = comp.getAllSubcomponents("vevent");
+    const now = new Date();
+
+    let nextRace = null;
+
+    events.forEach((eventComp) => {
+      const event = new ICAL.Event(eventComp);
+      const raceDate = event.startDate.toJSDate();
+
+      if (event.summary.includes("GP") && raceDate > now) {
+        if (!nextRace || raceDate < nextRace.startDate.toJSDate()) {
+          nextRace = event;
+        }
+      }
+    });
+
+    if (nextRace) {
+      const location = nextRace.location?.split(",")[0]?.trim() || "";
+      const summary = nextRace.summary.replace("Grand Prix", "GP").trim();
+
+      // Formata a data usando apenas JS nativo
+      const date = nextRace.startDate.toJSDate().toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+      });
+
+      return {
+        name: summary,
+        location: location,
+        date: date,
+      };
+    }
+
+    return null;
+  } catch (error) {
+    console.error("Erro ao ler o calendário:", error);
+    return null;
+  }
+}
+
+export default function Navbar({ onSubscribeClick }) {
+  const [nextRace, setNextRace] = useState(null);
+
+  useEffect(() => {
+    getNextRace().then(setNextRace);
+  }, []);
+
+  return (
+    <nav className="fixed top-0 z-50 w-full">
+      {/* Parte fixa */}
+      <div className="bg-dark-blue px-6 md:px-10 lg:px-14">
+        <div
+          className="mx-auto max-w-[1600px] py-3"
+          style={{
+            backgroundImage: `
+              linear-gradient(
+                180deg, 
+                rgba(21, 21, 30, 0.9) 0%, 
+                rgba(21, 21, 30, 1) 100%
+              ),
+              url('/lines.svg')
+            `,
+            backgroundSize: "cover",
+            backgroundPosition: "top",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="flex items-center justify-between">
+            {/* Icone - Lado esquerdo */}
+            <div className="flex items-center space-x-4">
+              <img src="/icon.svg" alt="Logo" className="h-12 w-12" />
+              <p className="hidden text-2xl text-white md:block">
+                My F1 Calendar
+              </p>
+            </div>
+
+            {/* Botoes - Lado direito */}
+            <div className="flex items-center space-x-4">
+              <button
+                className="rounded-full bg-black px-4 py-2 text-sm font-bold text-white transition-colors duration-200"
+                onClick={onSubscribeClick}
+              >
+                Add Manually
+              </button>
+              <button
+                className="bg-red hover:bg-dark-red rounded-full px-4 py-2 text-sm font-bold text-white transition-colors duration-200"
+                onClick={onSubscribeClick}
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Barra com próxima corrida */}
+      <div className="border-light-gray bg-off-white border-b-2 px-6 md:px-10 lg:px-14">
+        <div className="mx-auto max-w-[1600px] py-2">
+          <div className="flex items-center justify-between">
+            {/* Texto - Lado esquerdo */}
+            <div className="hidden items-center space-x-4 md:flex">
+              <p>A F1 Calendar made for you by you</p>
+            </div>
+
+            {/* Próxima corrida - Lado direito */}
+            {nextRace ? (
+              <div className="flex items-center space-x-4">
+                <p>🏁 Next Race</p>
+                <p className="font-bold">{nextRace.location}</p>
+                <p className="bg-light-gray rounded-lg px-2 py-1 text-sm font-bold">
+                  {parseInt(nextRace.date, 10) - 2} - {nextRace.date}
+                </p>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-4">
+                <p className="">Nenhuma corrida encontrada.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
